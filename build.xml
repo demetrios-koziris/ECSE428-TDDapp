@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<project name="PostalRateCalculator" default="compile">
+
+
+	<property name="junit.output.dir" value="junit"/>
+	<property environment="env"/>
+	<property name="libraries" value="lib"/>
+
+	<property name="srcdir" location="src/discount"/>
+	<property name="blddir" location="bin" />
+	<property name="classdir" location="${blddir}" />
+	<property name="jardir" value="${blddir}/jar" />
+
+	<path id="JUnit 4.libraryclasspath">
+		<pathelement location="${libraries}/org.junit_4.11.0.v201303080030/junit.jar"/>
+		<pathelement location="${libraries}/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+	</path>
+	<path id="PostalRateCalculator.classpath">
+		<pathelement location="${blddir}"/>
+		<path refid="JUnit 4.libraryclasspath"/>
+	</path>
+
+
+	<target name="clean">
+		<delete dir="${blddir}"/>
+	</target>
+
+
+	<target name="init" depends="clean">
+		<mkdir dir="${blddir}" />
+		<mkdir dir="${classdir}" />
+	</target>
+
+
+	<target name="compile" depends="init">
+		<javac destdir="${classdir}" >
+			<src path="src"/>
+			<classpath refid="PostalRateCalculator.classpath"/>
+		</javac>
+	</target>
+
+
+	<target name="link" depends="compile">
+		<mkdir dir="${jardir}"/>
+		<jar destfile="${jardir}/PostalRateCalculator.jar" basedir="${classdir}">
+			<manifest>
+				<attribute name="Main-Class" value="calculator.Demo" />
+			</manifest>
+		</jar>
+	</target>
+
+
+	<target name="runjar" depends="link">
+		<java jar="${jardir}/PostalRateCalculator.jar" fork="true">
+		</java>
+	</target>
+
+
+	<target name="run" depends="compile">
+		<java classname="calculator.Demo" fork="true">
+			<classpath>
+				<path location="${classdir}" />
+			</classpath>
+		</java>
+	</target>
+
+
+	<target name="test" depends="compile">
+		<mkdir dir="${junit.output.dir}"/>
+		<junit fork="yes" printsummary="withOutAndErr">
+			<formatter type="xml"/>
+			<test name="test.InitialTestClass" todir="${junit.output.dir}"/>
+			<classpath refid="PostalRateCalculator.classpath"/>
+		</junit>
+		<junitreport todir="${junit.output.dir}">
+			<fileset dir="${junit.output.dir}">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="${junit.output.dir}"/>
+		</junitreport>
+	</target>
+
+
+</project>
