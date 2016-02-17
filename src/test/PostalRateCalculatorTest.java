@@ -28,5 +28,19 @@ public class PostalRateCalculatorTest {
 		assertEquals(desc, PostalRateCalculator.Type.LETTER, postal.determineType());
 	}
 
+
+	@Test
+	public void Test2() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.length = 300;
+		postal.width = 200;
+		postal.thickness = 10;
+		postal.weight = 200;
+
+		String desc = "determineType() must return OTHER for valid OTHER parameters";
+		assertEquals(desc, PostalRateCalculator.Type.OTHER, postal.determineType());
+	}
+
 }
 
