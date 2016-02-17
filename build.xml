@@ -68,7 +68,7 @@
 
 	<target name="test" depends="compile">
 		<mkdir dir="${junit.output.dir}"/>
-		<junit fork="yes" printsummary="withOutAndErr">
+		<junit fork="yes" printsummary="withOutAndErr" haltonerror="no" haltonfailure="no" >
 			<formatter type="xml"/>
 			<test name="test.PostalRateCalculatorTest" todir="${junit.output.dir}"/>
 			<classpath refid="PostalRateCalculator.classpath"/>
@@ -81,5 +81,14 @@
 		</junitreport>
 	</target>
 
+
+	<target name="testTravisCI" depends="compile">
+		<mkdir dir="${junit.output.dir}"/>
+		<junit fork="yes" printsummary="withOutAndErr" haltonerror="yes" haltonfailure="yes" >
+			<formatter type="xml"/>
+			<test name="test.PostalRateCalculatorTest" todir="${junit.output.dir}"/>
+			<classpath refid="PostalRateCalculator.classpath"/>
+		</junit>
+	</target>
 
 </project>
