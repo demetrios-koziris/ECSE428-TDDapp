@@ -13,4 +13,8 @@
     <string name="single_stamp">Single Stamp</string>
     <string name="meter">Meter / Postal Indicia</string>
     <string name="booklet_stamp">Booklet Stamp</string>
+    <string name="length_req">Length required!</string>
+    <string name="width_req">Width required!</string>
+    <string name="thickness_req">Thickness required!</string>
+    <string name="weight_req">Weight required!</string>
 </resources>
