@@ -73,8 +73,24 @@ public class PostalRateCalculatorTest {
 		postal.weight = 10;
 		postal.payment = PostalRateCalculator.Payment.METER_POSTAL_INDICIA;
 
-		String desc = "Test 0.85 for CANADA & LETTER & weight<=30 & METER_POSTAL_INDICIA";
+		String desc = "Test 0.80 for CANADA & LETTER & weight<=30 & METER_POSTAL_INDICIA";
 		assertEquals(desc, 0.80f, postal.getPostalRate(), delta);
+	}
+
+
+	@Test
+	public void Test3ia3() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.dest = PostalRateCalculator.Destination.CANADA;
+		postal.length = 150;
+		postal.width = 100;
+		postal.thickness = 1;
+		postal.weight = 10;
+		postal.payment = PostalRateCalculator.Payment.STAMP_SINGLE;
+
+		String desc = "Test 1.00 for CANADA & LETTER & weight<=30 & STAMP_SINGLE";
+		assertEquals(desc, 1.00f, postal.getPostalRate(), delta);
 	}
 }
 
