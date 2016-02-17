@@ -70,7 +70,7 @@
 		<mkdir dir="${junit.output.dir}"/>
 		<junit fork="yes" printsummary="withOutAndErr">
 			<formatter type="xml"/>
-			<test name="test.InitialTestClass" todir="${junit.output.dir}"/>
+			<test name="test.PostalRateCalculatorTest" todir="${junit.output.dir}"/>
 			<classpath refid="PostalRateCalculator.classpath"/>
 		</junit>
 		<junitreport todir="${junit.output.dir}">
