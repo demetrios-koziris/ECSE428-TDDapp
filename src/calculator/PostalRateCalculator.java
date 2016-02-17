@@ -58,6 +58,9 @@ public class PostalRateCalculator {
 					else if (payment == Payment.METER_POSTAL_INDICIA) {
 						return 1.19f;
 					}
+					else if (payment == Payment.STAMP_SINGLE) {
+						return 1.20f;
+					}
 				}
 			}
 		}
