@@ -16,6 +16,10 @@ public class PostalRateCalculatorTest {
 
 	@Test
 	public void checkType() {
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.length = 10;
+		postal.width = 10;
+
 
 
 	}
