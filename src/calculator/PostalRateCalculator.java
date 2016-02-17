@@ -2,9 +2,10 @@
 package calculator;
 
 public class PostalRateCalculator {
+	private float length, width, height, weight;
 
-	public static int returnZero() {
-		return 0;
-	}
-	
+	public float getPostalRate();
+
+	public String getType();
+
 }

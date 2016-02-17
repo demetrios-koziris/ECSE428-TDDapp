@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import calculator.PostalRateCalculator;
 
-public class InitialTestClass {
+public class PostalRateCalculatorTest {
 
 
 	@Before
@@ -15,8 +15,9 @@ public class InitialTestClass {
 	}
 
 	@Test
-	public void initialTest() {
-	    assertEquals("initial test", 0, PostalRateCalculator.returnZero());
+	public void checkType() {
+
+
 	}
 	
 
