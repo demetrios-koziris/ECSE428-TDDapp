@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PostalRateCalculator</string>
+    <string name="length">Length</string>
+    <string name="width">Width</string>
+    <string name="thickness">Thickness</string>
+    <string name="weight">Weight</string>
+    <string name="canada">Canada</string>
+    <string name="usa">USA</string>
+    <string name="international">International</string>
+    <string name="postage">Your postage is:</string>
+    <string name="item">Item</string>
+    <string name="dest">Destination</string>
+    <string name="single_stamp">Single Stamp</string>
+    <string name="meter">Meter / Postal Indicia</string>
+    <string name="booklet_stamp">Booklet Stamp</string>
+</resources>
