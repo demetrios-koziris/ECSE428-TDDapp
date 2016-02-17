@@ -25,6 +25,13 @@ public class PostalRateCalculator {
 		{
 			type = Type.LETTER;
 		}
+		else if (length <= 380 &&
+		         width <= 270 &&
+		         thickness <= 20 &&
+		         weight <= 500)
+		{
+			type = Type.OTHER;
+		}
 		return type;
 	}
 
