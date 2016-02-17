@@ -24,7 +24,7 @@ public class PostalRateCalculatorTest {
 		postal.thickness = 1;
 		postal.weight = 10;
 
-		String desc = "determineType() returning LETTER for valid LETTER parameters";
+		String desc = "determineType() must return LETTER for valid LETTER parameters";
 		assertEquals(desc, PostalRateCalculator.Type.LETTER, postal.determineType());
 	}
 
