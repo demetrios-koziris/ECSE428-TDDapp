@@ -44,6 +44,9 @@ public class PostalRateCalculator {
 					if (payment == Payment.STAMP_BOOKLET) {
 						return 0.85f;
 					}
+					else if (payment == Payment.METER_POSTAL_INDICIA) {
+						return 0.80f;
+					}
 				}
 			}
 		}
