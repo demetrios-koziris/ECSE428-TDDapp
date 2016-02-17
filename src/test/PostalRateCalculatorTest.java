@@ -9,6 +9,9 @@ import calculator.PostalRateCalculator;
 
 public class PostalRateCalculatorTest {
 
+	//acceptable delta when making comparisons with floating points
+	float delta = 0.0f;
+
 
 	@Before
 	public void main() {
@@ -42,5 +45,20 @@ public class PostalRateCalculatorTest {
 		assertEquals(desc, PostalRateCalculator.Type.OTHER, postal.determineType());
 	}
 
+
+	@Test
+	public void Test3ia1() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.dest = PostalRateCalculator.Destination.CANADA;
+		postal.length = 150;
+		postal.width = 100;
+		postal.thickness = 1;
+		postal.weight = 10;
+		postal.payment = PostalRateCalculator.Payment.STAMP_BOOKLET;
+
+		String desc = "Test 0.85 for CANADA & LETTER & weight<=30 & STAMP_BOOKLET";
+		assertEquals(desc, 0.85f, postal.getPostalRate(), delta);
+	}
 }
 
