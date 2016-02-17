@@ -37,6 +37,16 @@ public class PostalRateCalculator {
 
 	public float getPostalRate() {
 		type = determineType();
+
+		if (dest == Destination.CANADA) {
+			if (type == Type.LETTER) {
+				if (weight <= 30) {
+					if (payment == Payment.STAMP_BOOKLET) {
+						return 0.85f;
+					}
+				}
+			}
+		}
 		return 0.0f;
 	}
 
