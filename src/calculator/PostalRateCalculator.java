@@ -125,6 +125,13 @@ public class PostalRateCalculator {
 					}
 				}
 			}
+			else if (type == Type.OTHER) {
+				if (weight <= 100) {
+					if (payment == Payment.STAMP_BOOKLET || payment == Payment.STAMP_SINGLE) {
+						return 2.95f;
+					}
+				}
+			}
 		}
 		return 0.0f;
 	}
