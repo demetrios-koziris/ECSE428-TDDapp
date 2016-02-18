@@ -36,7 +36,11 @@ public class PostalRateCalculator {
 	}
 
 	public float getPostalRate() {
+
 		type = determineType();
+		if (type == null) {
+			throw new IllegalArgumentException("ERROR: Selected length, width, thickness, and weight parameters do not match LETTER or OTHER");
+		}
 
 		if (dest == Destination.CANADA) {
 			if (type == Type.LETTER) {
