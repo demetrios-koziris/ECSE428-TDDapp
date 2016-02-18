@@ -116,6 +116,11 @@ public class PostalRateCalculator {
 						return 1.19f;
 					}
 				}
+				else if (weight <= 50) {
+					if (payment == Payment.STAMP_BOOKLET || payment == Payment.STAMP_SINGLE) {
+						return 1.80f;
+					}
+				}
 			}
 		}
 		return 0.0f;
