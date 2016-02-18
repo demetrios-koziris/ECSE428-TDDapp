@@ -184,6 +184,9 @@ public class PostalRateCalculator {
 					if (payment == Payment.STAMP_BOOKLET || payment == Payment.STAMP_SINGLE) {
 						return 10.30f;
 					}
+					else if (payment == Payment.METER_POSTAL_INDICIA) {
+						return 9.69f;
+					}
 				}
 			}
 		}
