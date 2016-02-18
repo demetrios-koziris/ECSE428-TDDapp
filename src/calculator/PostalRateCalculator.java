@@ -106,6 +106,15 @@ public class PostalRateCalculator {
 				}
 			}
 		}
+		else if (dest == Destination.USA) {
+			if (type == Type.LETTER) {
+				if (weight <= 30) {
+					if (payment == Payment.STAMP_BOOKLET || payment == Payment.STAMP_SINGLE) {
+						return 1.20f;
+					}
+				}
+			}
+		}
 		return 0.0f;
 	}
 
