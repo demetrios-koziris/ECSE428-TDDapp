@@ -369,11 +369,11 @@ public class PostalRateCalculatorTest {
 		postal.weight = 40;
 
 		postal.payment = PostalRateCalculator.Payment.STAMP_BOOKLET;
-		String desc1 = "Test 1.80 for USA & LETTER & weight<=30 & STAMP_BOOKLET";
+		String desc1 = "Test 1.80 for USA & LETTER & 30<weight<=50 & STAMP_BOOKLET";
 		assertEquals(desc1, 1.80f, postal.getPostalRate(), delta);
 
 		postal.payment = PostalRateCalculator.Payment.STAMP_SINGLE;
-		String desc2 = "Test 1.80 for USA & LETTER & weight<=30 & STAMP_SINGLE";
+		String desc2 = "Test 1.80 for USA & LETTER & 30<weight<=50 & STAMP_SINGLE";
 		assertEquals(desc1, 1.80f, postal.getPostalRate(), delta);
 	}
 
@@ -549,11 +549,11 @@ public class PostalRateCalculatorTest {
 		postal.weight = 40;
 
 		postal.payment = PostalRateCalculator.Payment.STAMP_BOOKLET;
-		String desc1 = "Test 3.60 for INTERNATIONAL & LETTER & weight<=30 & STAMP_BOOKLET";
+		String desc1 = "Test 3.60 for INTERNATIONAL & LETTER & 30<weight<=50 & STAMP_BOOKLET";
 		assertEquals(desc1, 3.60f, postal.getPostalRate(), delta);
 
 		postal.payment = PostalRateCalculator.Payment.STAMP_SINGLE;
-		String desc2 = "Test 3.60 for INTERNATIONAL & LETTER & weight<=30 & STAMP_SINGLE";
+		String desc2 = "Test 3.60 for INTERNATIONAL & LETTER & 30<weight<=50 & STAMP_SINGLE";
 		assertEquals(desc1, 3.60f, postal.getPostalRate(), delta);
 	}
 	
