@@ -152,6 +152,15 @@ public class PostalRateCalculator {
 				}
 			}
 		}
+		else if (dest == Destination.INTERNATIONAL) {
+			if (type == Type.LETTER) {
+				if (weight <= 30) {
+					if (payment == Payment.STAMP_BOOKLET || payment == Payment.STAMP_SINGLE) {
+						return 2.50f;
+					}
+				}
+			}
+		}
 		return 0.0f;
 	}
 
