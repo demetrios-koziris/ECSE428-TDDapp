@@ -682,7 +682,6 @@ public class PostalRateCalculatorTest {
 	}
 
 
-
 	@Test
 	public void Test6() {
 
@@ -704,5 +703,27 @@ public class PostalRateCalculatorTest {
    			assertEquals(desc, expectedErrorMessage, anIllegalArgumentException.getMessage());
     	}
 	}
+
+
+	@Test
+	public void Test7() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.length = 150;
+		postal.width = 100;
+		postal.thickness = 1;
+		postal.weight = 10;
+		
+		String desc = "Testing missing parameters exception";
+		String expectedErrorMessage = "ERROR: Must provide values for destination ant payment-method";
+		try {
+	        postal.getPostalRate();
+	        fail("Expected an IllegalArgumentException to be thrown with message: " + expectedErrorMessage);
+   		} 
+   		catch (IllegalArgumentException anIllegalArgumentException) {
+   			assertEquals(desc, expectedErrorMessage, anIllegalArgumentException.getMessage());
+    	}
+	}
+
 }
 
