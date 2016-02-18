@@ -248,6 +248,26 @@ public class PostalRateCalculatorTest {
 		String desc1 = "Test 3.89 for CANADA & OTHER & 200<weight<=300 & METER_POSTAL_INDICIA";
 		assertEquals(desc1, 3.89f, postal.getPostalRate(), delta);
 	}
+
+
+	@Test
+	public void Test3iid1() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.dest = PostalRateCalculator.Destination.CANADA;
+		postal.length = 300;
+		postal.width = 200;
+		postal.thickness = 10;
+		postal.weight = 350;
+
+		postal.payment = PostalRateCalculator.Payment.STAMP_BOOKLET;
+		String desc1 = "Test 4.70 for CANADA & OTHER & 300<weight<=400 & STAMP_BOOKLET";
+		assertEquals(desc1, 4.70f, postal.getPostalRate(), delta);
+
+		postal.payment = PostalRateCalculator.Payment.STAMP_SINGLE;
+		String desc2 = "Test 4.70 for CANADA & OTHER & 300<weight<=400 & STAMP_SINGLE";
+		assertEquals(desc1, 4.70f, postal.getPostalRate(), delta);
+	}
 	
 }
 
