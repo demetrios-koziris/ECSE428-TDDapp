@@ -644,7 +644,7 @@ public class PostalRateCalculatorTest {
 		String desc1 = "Test 9.69 for INTERNATIONAL & OTHER & 100<weight<=200 & METER_POSTAL_INDICIA";
 		assertEquals(desc1, 9.69f, postal.getPostalRate(), delta);
 	}
-	
+
 
 	@Test
 	public void Test5iic1() {
@@ -665,5 +665,21 @@ public class PostalRateCalculatorTest {
 		assertEquals(desc1, 20.60f, postal.getPostalRate(), delta);
 	}
 
+
+	@Test
+	public void Test5iic2() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.dest = PostalRateCalculator.Destination.INTERNATIONAL;
+		postal.length = 300;
+		postal.width = 200;
+		postal.thickness = 10;
+		postal.weight = 250;
+		postal.payment = PostalRateCalculator.Payment.METER_POSTAL_INDICIA;
+
+		String desc1 = "Test 19.39 for INTERNATIONAL & OTHER & 200<weight<=500 & METER_POSTAL_INDICIA";
+		assertEquals(desc1, 19.39f, postal.getPostalRate(), delta);
+	}
+	
 }
 
