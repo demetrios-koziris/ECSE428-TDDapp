@@ -15,6 +15,14 @@
  3.	To view an html report of the junit test results, navigate to the junit folder after running step 2 and open `index.html` in a browser window. 
 
 
-
-
 ##Running Android App
+<br>
+<br>
+<br>
+<br>
+
+
+##TDD Unit Test Mind Map
+<p align="center">
+  <img src="TDD_MindMap.png">
+</p>
