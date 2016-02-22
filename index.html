@@ -13,63 +13,63 @@
     <section class="page-header">
       <h1 class="project-name">ECSE428 TDD Mobile Postal Rate Calculator</h1>
       <h2 class="project-tagline">Postal rate calculator created using TDD as part of an assignment for ECSE 428 at McGill</h2>
-      <a href="https://github.com/demetrios-koziris/ECSE428-TDDapp" class="btn">View on GitHub</a>
       <a href="https://github.com/demetrios-koziris/ECSE428-TDDapp/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/demetrios-koziris/ECSE428-TDDapp" class="btn">View on GitHub</a>
       <a href="https://github.com/demetrios-koziris/ECSE428-TDDapp/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
       <h2>
-<a id="running-junit-tests" class="anchor" href="#running-junit-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running JUnit Tests</h2>
+        <a id="running-junit-tests" class="anchor" href="#running-junit-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running JUnit Tests</h2>
 
-<ol>
-<li>Clone from Github master branch to local repository</li>
-<li>
-<p>Navigate to the git repository ("ECSE428-TDDapp" directory) from a terminal and run </p>
+        <ol>
+          <li>
+            <p>Clone from Github master branch to local repository</p>
+          </li>
+          <li>
+            <p>Navigate to the git repository ("ECSE428-TDDapp" directory) from a terminal and run </p>
+            <p><code>ant test</code> </p>
+            <p>The ant command as specified in build.xml will compile the source code and run all junit tests.</p>
+            <p>Note: Must have <a href="https://ant.apache.org/bindownload.cgi">Apache Ant</a> installed to run ant commands and a java JDK to compile.</p>
+          </li>
+          <li>
+            <p>To view an html report of the junit test results, navigate to the junit folder after running step 2 and open <code>index.html</code> in a browser window. The latest report can also be viewed by clicking the following button:</p>
+            <p align="center"><a class="page-header-color btn" href="junit/index.html">View latest JUnit Test Report</a></p>
+          </li>
+        </ol>
+        <br>
+      </h2>
 
-<p><code>ant test</code> </p>
+      <h2>
+        <a id="running-android-app" class="anchor" href="#running-android-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running Android App</h2>
+        <ol>
+          <li>
+            <p>To generate the APK, we used the Build APK function in Android Studio (Build -&gt; Build APK). A debug APK (sufficient) for our purposes is generated in ECSE428-TDDapp/PostalRateCalculator/app/build/outputs/apk folder. </p></li>
+            <li>
+              <p>For convenience, we've put an apk in the top-level folder. It can also be downloaded directly from the following button:</p>
+              <p  align="center"><a class="page-header-color btn" href="https://raw.githubusercontent.com/demetrios-koziris/ECSE428-TDDapp/master/app-debug.apk">Download Mobile Postal Rate Calculator</a></p>
+            </li>
+            <li>
+              <p>To run, download the .apk file on your android device, open it, and click Install. Note that you must have "Unknown sources: Allow installation of applications from both trusted and unknown sources" turned on in your settings or you will be prompted to change this setting before you can install.</p></li>
+            <li>
+              <p>For more details see <a href="http://www.digitalcitizen.life/how-sideload-apps-using-apk-files-android-devices">How To Sideload Apps Using APK Files On Android Devices</a></p>
+            </li>
+          </ol>
+          <br>
+        </h2>
 
-<p>The ant command as specified in build.xml will compile the source code and run all junit tests.</p>
+        <h2>
+          <a id="tdd-unit-test-mind-map" class="anchor" href="#tdd-unit-test-mind-map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TDD Unit Test Mind Map</h2>
+          <p align="center"><img src="https://raw.githubusercontent.com/demetrios-koziris/ECSE428-TDDapp/master/TDD_MindMap.png"></p>
 
-<p>Note: Must have <a href="https://ant.apache.org/bindownload.cgi">Apache Ant</a> installed to run ant commands and a java JDK to compile.</p>
-</li>
-<li>To view an html report of the junit test results, navigate to the junit folder after running step 2 and open <code>index.html</code> in a browser window. </li>
-</ol>
+          <footer class="site-footer">
+            <span class="site-footer-owner"><a href="https://github.com/demetrios-koziris/ECSE428-TDDapp">ECSE428 TDD Mobile Postal Rate Calculator</a> is maintained by <a href="https://github.com/demetrios-koziris">demetrios-koziris</a>.</span>
 
-<h2>
-<a id="running-android-app" class="anchor" href="#running-android-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running Android App</h2>
-
-<ol>
-<li><p>To generate the APK, we used the Build APK function in Android Studio (Build -&gt; Build APK). A debug APK (sufficient) for our purposes is generated in ECSE428-TDDapp/PostalRateCalculator/app/build/outputs/apk folder. </p></li>
-<li>
-<p>For convenience, we've put an apk in the top-level folder. It can also be downloaded directly from the following link</p>
-
-<p align="center">
-<a href="https://raw.githubusercontent.com/demetrios-koziris/ECSE428-TDDapp/master/app-debug.apk">Download Mobile Postal Rate Calculator</a>
-</p>
-</li>
-<li><p>To run, download the .apk file on your android device, open it, and click Install. Note that you must have "Unknown sources: Allow installation of applications from both trusted and unknown sources" turned on in your settings or you will be prompted to change this setting before you can install.</p></li>
-<li><p>For more details see 
-<a href="http://www.digitalcitizen.life/how-sideload-apps-using-apk-files-android-devices">How To Sideload Apps Using APK Files On Android Devices</a></p></li>
-</ol>
-
-<p><br></p>
-
-<h2>
-<a id="tdd-unit-test-mind-map" class="anchor" href="#tdd-unit-test-mind-map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TDD Unit Test Mind Map</h2>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/demetrios-koziris/ECSE428-TDDapp/master/TDD_MindMap.png">
-</p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/demetrios-koziris/ECSE428-TDDapp">ECSE428 TDD Mobile Postal Rate Calculator</a> is maintained by <a href="https://github.com/demetrios-koziris">demetrios-koziris</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+            <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+          </footer>
 
     </section>
 
-  
+
   </body>
 </html>
