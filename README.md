@@ -16,6 +16,8 @@
 
 
 ##Running Android App
+
+To generate the APK, we used the Build APK function in Android Studio (Build -> Build APK). A debug APK (sufficient) for our purposes is generated in ECSE428-TDDapp/PostalRateCalculator/app/build/outputs/apk folder. For convenience, we've put an apk in the top-level folder. 
 <br>
 <br>
 <br>
