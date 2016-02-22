@@ -680,6 +680,50 @@ public class PostalRateCalculatorTest {
 		String desc1 = "Test 19.39 for INTERNATIONAL & OTHER & 200<weight<=500 & METER_POSTAL_INDICIA";
 		assertEquals(desc1, 19.39f, postal.getPostalRate(), delta);
 	}
-	
+
+
+	@Test
+	public void Test6() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.dest = PostalRateCalculator.Destination.CANADA;
+		postal.payment = PostalRateCalculator.Payment.STAMP_SINGLE;
+		postal.length = 0;
+		postal.width = 0;
+		postal.thickness = 0;
+		postal.weight = 0;
+		
+		String desc = "Testing invalid parameters exception";
+		String expectedErrorMessage = "ERROR: Selected length, width, thickness, and weight parameters do not match LETTER or OTHER";
+		try {
+	        postal.getPostalRate();
+	        fail("Expected an IllegalArgumentException to be thrown with message: " + expectedErrorMessage);
+   		} 
+   		catch (IllegalArgumentException anIllegalArgumentException) {
+   			assertEquals(desc, expectedErrorMessage, anIllegalArgumentException.getMessage());
+    	}
+	}
+
+
+	@Test
+	public void Test7() {
+
+		PostalRateCalculator postal = new PostalRateCalculator();
+		postal.length = 150;
+		postal.width = 100;
+		postal.thickness = 1;
+		postal.weight = 10;
+		
+		String desc = "Testing missing parameters exception";
+		String expectedErrorMessage = "ERROR: Must provide values for destination ant payment-method";
+		try {
+	        postal.getPostalRate();
+	        fail("Expected an IllegalArgumentException to be thrown with message: " + expectedErrorMessage);
+   		} 
+   		catch (IllegalArgumentException anIllegalArgumentException) {
+   			assertEquals(desc, expectedErrorMessage, anIllegalArgumentException.getMessage());
+    	}
+	}
+
 }
 
