@@ -1,12 +1,10 @@
 package ecse428.postalratecalculator;
 
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
+import android.view.Gravity;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -20,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText mWeight;
 
     private int checkedDest;
-    private int checkedItem;
+    private int checkedPayment;
+
+    private TextView returnedPostage;
 
     // Keep track of whether registering has been cancelled
     private boolean cancel = false;
@@ -36,11 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mThickness = (EditText)findViewById(R.id.textThickness);
         mWeight = (EditText)findViewById(R.id.textWeight);
 
-        RadioGroup destRadio = (RadioGroup)findViewById(R.id.radioDest);
-        RadioGroup itemRadio = (RadioGroup)findViewById(R.id.radioItem);
-
-        checkedDest = destRadio.getCheckedRadioButtonId();
-        checkedItem = itemRadio.getCheckedRadioButtonId();
+        returnedPostage = (TextView)findViewById(R.id.postage);
 
         Button calcButton = (Button) findViewById(R.id.calcpostage);
         calcButton.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
         final String length = mLength.getText().toString();
         final String thickness = mThickness.getText().toString();
         final String width = mWidth.getText().toString();
+
+
+        RadioGroup destRadio = (RadioGroup)findViewById(R.id.radioDest);
+        RadioGroup itemRadio = (RadioGroup)findViewById(R.id.radioItem);
+        checkedDest = destRadio.getCheckedRadioButtonId();
+        checkedPayment = itemRadio.getCheckedRadioButtonId();
 
         // Do validation here.
         // check if empty
@@ -90,11 +92,36 @@ public class MainActivity extends AppCompatActivity {
             cancel = false;
             focusView.requestFocus();
         } else {
-            // do stuff
-            // call other function to do actual stuff
+            PostalRateCalculator prc = new PostalRateCalculator();
+            prc.length = Integer.parseInt(length);
+            prc.width = Integer.parseInt(width);
+            prc.thickness = Integer.parseInt(thickness);
+            prc.weight = Integer.parseInt(weight);
+
+            prc.dest = getDestFromView(checkedDest);
+            prc.payment = getPaymentFromView(checkedPayment);
+            float postalRate = prc.getPostalRate();
+            if (postalRate == 0f) {
+                returnedPostage.setTextSize(12);
+                returnedPostage.setGravity(Gravity.CENTER);
+                returnedPostage.setText("Error: selected params do not match LETTER/OTHER.");
+            }
+            else {
+                returnedPostage.setTextSize(20);
+                returnedPostage.setText(Float.toString(postalRate));
+            }
         }
+    }
 
+    private PostalRateCalculator.Destination getDestFromView(int checkedDest) {
+        if (checkedDest == 2131492946) return PostalRateCalculator.Destination.CANADA;
+        if (checkedDest == 2131492947) return PostalRateCalculator.Destination.USA;
+        else return PostalRateCalculator.Destination.INTERNATIONAL;
+    }
 
-        // After validation done, populate Postal object.
+    private PostalRateCalculator.Payment getPaymentFromView(int checkedPayment) {
+        if (checkedPayment == 2131492951) return PostalRateCalculator.Payment.STAMP_SINGLE;
+        if (checkedPayment == 2131492952) return PostalRateCalculator.Payment.METER_POSTAL_INDICIA;
+        else return PostalRateCalculator.Payment.STAMP_BOOKLET;
     }
 }

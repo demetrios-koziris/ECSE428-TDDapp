@@ -17,4 +17,5 @@
     <string name="width_req">Width required!</string>
     <string name="thickness_req">Thickness required!</string>
     <string name="weight_req">Weight required!</string>
+    <string name="payment">\"payment\"</string>
 </resources>
