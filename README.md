@@ -17,11 +17,20 @@
 
 ##Running Android App
 
-To generate the APK, we used the Build APK function in Android Studio (Build -> Build APK). A debug APK (sufficient) for our purposes is generated in ECSE428-TDDapp/PostalRateCalculator/app/build/outputs/apk folder. For convenience, we've put an apk in the top-level folder. 
+1. To generate the APK, we used the Build APK function in Android Studio (Build -> Build APK). A debug APK (sufficient) for our purposes is generated in ECSE428-TDDapp/PostalRateCalculator/app/build/outputs/apk folder. 
+
+2. For convenience, we've put an apk in the top-level folder. It can also be downloaded directly from the following link
+<p align="center">
+<a href="https://raw.githubusercontent.com/demetrios-koziris/ECSE428-TDDapp/master/app-debug.apk">Download Mobile Postal Rate Calculator</a>
+</p>
+
+3. To run, download the .apk file on your android device, open it, and click Install. Note that you must have "Unknown sources: Allow installation of applications from both trusted and unknown sources" turned on in your settings or you will be prompted to change this setting before you can install.
+
+4. For more details see 
+<a href="http://www.digitalcitizen.life/how-sideload-apps-using-apk-files-android-devices">How To Sideload Apps Using APK Files On Android Devices</a>
+
 <br>
-<br>
-<br>
-<br>
+
 
 
 ##TDD Unit Test Mind Map
